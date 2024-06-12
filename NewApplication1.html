@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 5px; /* Reduce padding */
+      position: fixed; /* Fixed positioning */
+      bottom: 0; /* Stick to the bottom */
+      width: 100%; /* Full width */
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: 100vh;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+    
+    /* Custom styling for form */
+    form fieldset {
+      margin-bottom: 20px;
+    }
+    form label {
+      font-weight: bold;
+    }
+    form input[type="text"],
+    form input[type="date"],
+    form select,
+    form textarea,
+    form input[type="email"],
+    form input[type="tel"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    form {
+    margin-bottom: 100px; /* Increase or decrease as needed */
+  }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav justify-content">
+        <li ><a href="loginpage1.html">Login</a></li>
+        <li><a href="sign-up.html">Sign-up</a></li>
+        <li class="active"><a href="NewApplication.html">New passport</a></li>
+        <li><a href="RenewApplication1.html">Renew passport Application</a></li>
+        <li><a href="ApplicationStatus1.html">Application Status</a></li>
+        <li><a href="homepage1.html">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="loginpage1.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+        <p><a href="loginpage1.html">Login</a></p>
+        <p><a href="sign-up1.html">Sign-up</a></p>
+        <p><a href="NewApplication1.html">New passport Application</a></p>
+        <p><a href="RenewApplication1.html">Renew passport Application</a></p>
+        <p><a href="ApplicationStatus1.html">Application Status</p>
+        <p><a href="homepage1.html">Home</a></p>
+      </div>
+    <div class="col-sm-8 text-left"> 
+        
+          
+          <div class="container-fluid text-center">    
+            <div class="row content">
+              
+              <div class="col-sm-8 text-left"> 
+                <h1 class="bg-info">New Passport Application</h1>
+                <form action="/submit_passport_application" method="POST" enctype="multipart/form-data">
+                   <!-- Personal Information -->
+        <fieldset>
+            <legend>Personal Information</legend>
+            <div class="form-group">
+              <label for="full_name">Full Name:</label>
+              <input type="text" id="full_name" name="full_name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label for="dob">Date of Birth:</label>
+              <input type="date" id="dob" name="dob" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+              <label>Gender:</label>
+              <div>
+                <label class="radio-inline"><input type="radio" id="male" name="gender" value="male" required>Male</label>
+                <label class="radio-inline"><input type="radio" id="female" name="gender" value="female">Female</label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="nationality">Nationality:</label>
+              <select id="nationality" name="nationality" class="form-control" required>
+                  <option value="">Select Nationality</option>
+                  <option value="us">United States</option>
+                  <option value="uk">United Kingdom</option>
+                  <option value="Ind">India</option>
+                  <!-- Add more options as needed -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="occupation">Occupation:</label>
+              <input type="text" id="occupation" name="occupation" class="form-control">
+            </div>
+            
+            <div class="form-group">
+              <label for="marital_status">Marital Status:</label>
+              <select id="marital_status" name="marital_status" class="form-control" required>
+                  <option value="">Select Marital Status</option>
+                  <option value="single">Single</option>
+                  <option value="married">Married</option>
+                  <option value="divorced">Divorced</option>
+                  <option value="widow_widower">Widow/Widower</option>
+                  <option value="separated">Separated</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Citizenship of India by:</label><br>
+              <label class="radio-inline"><input type="radio" id="birth" name="citizenship" value="birth" required>Birth</label>
+              <label class="radio-inline"><input type="radio" id="descent" name="citizenship" value="descent">Descent</label>
+              <label class="radio-inline"><input type="radio" id="registration" name="citizenship" value="registration">Registration/Naturalization</label
+<br>
+
+            <label>Citizenship of India by:</label>
+            <input type="radio" id="birth" name="citizenship" value="birth" required>
+            <label for="birth">Birth</label>
+            <input type="radio" id="descent" name="citizenship" value="descent">
+            <label for="descent">Descent</label>
+            <input type="radio" id="registration" name="citizenship" value="registration">
+            <label for="registration">Registration/Naturalization</label><br>
+
+            <label for="pan">PAN (If available):</label>
+            <input type="text" id="pan" name="pan"><br>
+
+            <label for="voter_id">Voter ID (If available):</label>
+            <input type="text" id="voter_id" name="voter_id">
+        </fieldset>
+        <!-- Contact Information -->
+        <fieldset>
+            <legend>Contact Information</legend>
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" cols="30" required></textarea><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </fieldset>
+         
+                </form>
+              </div>
+              
+            </div>
+          </div>
+          
+          
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+    <footer class="container-fluid text-center">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="NewApplication2.html">2</a></li>
+            <li class="page-item"><a class="page-link" href="NewApplication3.html">3</a></li>
+            <li class="page-item"><a class="page-link" href="NewApplication4.html">4</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+      </footer>
+      
+</footer>
+
+</body>
+</html>

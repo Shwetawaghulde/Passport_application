@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 5px; /* Reduce padding */
+      position: fixed; /* Fixed positioning */
+      bottom: 0; /* Stick to the bottom */
+      width: 100%; /* Full width */
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: 100vh;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+    
+    /* Custom styling for form */
+    form fieldset {
+      margin-bottom: 20px;
+    }
+    form label {
+      font-weight: bold;
+    }
+    form input[type="text"],
+    form input[type="date"],
+    form select,
+    form textarea,
+    form input[type="email"],
+    form input[type="tel"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    form {
+    margin-bottom: 100px; /* Increase or decrease as needed */
+  }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav justify-content">
+        <li ><a href="loginpage1.html">Login</a></li>
+        <li><a href="sign-up.html">Sign-up</a></li>
+        <li class="active"><a href="NewApplication.html">New passport</a></li>
+        <li><a href="RenewApplication1.html">Renew passport Application</a></li>
+        <li><a href="ApplicationStatus1.html">Application Status</a></li>
+        <li><a href="homepage1.html">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="loginpage1.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="loginpage1.html">Login</a></p>
+      <p><a href="sign-up1.html">Sign-up</a></p>
+      <p><a href="NewApplication1.html">New passport Application</a></p>
+      <p><a href="RenewApplication.html">Renew passport Application</a></p>
+      <p><a href="ApplicationStatus1.html">Application Status</p>
+      <p><a href="homepage1.html">Home</a></p>
+    </div>
+    <div class="col-sm-8 text-left"> 
+        
+          
+          <div class="container-fluid text-center">    
+            <div class="row content">
+              
+              <div class="col-sm-8 text-left"> 
+                <h1 class="bg-info">New Passport Application</h1>
+                <form action="/submit_passport_application" method="POST" enctype="multipart/form-data">
+                    <!-- Present Residential Address Details -->
+         <fieldset>
+            <legend>Present Residential Address Details (Where applicant presently resides)</legend>
+            <label for="present_address">Present Address:</label>
+            <textarea id="present_address" name="present_address" rows="4" cols="30" required></textarea><br>
+            <label>Is permanent address same as present address?</label>
+            <input type="radio" id="address_same_yes" name="address_same" value="yes" required>
+            <label for="address_same_yes">Yes</label>
+            <input type="radio" id="address_same_no" name="address_same" value="no">
+            <label for="address_same_no">No</label><br>
+        </fieldset>
+
+        <!-- Passport Details -->
+        <fieldset>
+            <legend>Passport Details</legend>
+            <label for="passport_type">Passport Type:</label>
+            <select id="passport_type" name="passport_type" required>
+                <option value="">Select Passport Type</option>
+                <option value="regular">Regular</option>
+                <option value="diplomatic">Diplomatic</option>
+                <!-- Add more options as needed -->
+            </select><br>
+
+            <label for="issuing_authority">Issuing Authority:</label>
+            <input type="text" id="issuing_authority" name="issuing_authority" required><br>
+
+            <label for="expiration_date">Expiration Date:</label>
+            <input type="date" id="expiration_date" name="expiration_date" required><br>
+
+            <label>Additional Options:</label>
+            <input type="checkbox" id="expedited_processing" name="expedited_processing">
+            <label for="expedited_processing">Expedited Processing</label>
+        </fieldset>
+
+        <!-- Validity Section -->
+        <fieldset>
+            <legend>Validity Required</legend>
+            <label for="validity_10_years">10 Years</label>
+            <input type="radio" id="validity_10_years" name="validity" value="10_years" required><br>
+            <label for="validity_minor">Up to age 18 </label>
+            <input type="radio" id="validity_minor" name="validity" value="minor"><br>
+            <p>(For minors between 15 and 18 years)</p>
+           
+        </fieldset>
+        <fieldset>
+            <legend>Educational Qualification</legend>
+            <label for="education_7th_pass">7th pass or less</label>
+            <input type="radio" id="education_7th_pass" name="education" value="7th_pass" required><br>
+            <label for="education_8th_9th">Between 8th and 9th Standard</label>
+            <input type="radio" id="education_8th_9th" name="education" value="8th_9th"><br>
+            <label for="education_10th_pass">10th pass and above</label>
+            <input type="radio" id="education_10th_pass" name="education" value="10th_pass"><br>
+            <label for="education_graduate">Graduate and above</label>
+            <input type="radio" id="education_graduate" name="education" value="graduate"><br>
+        </fieldset>
+        <fieldset>
+            <label for="aadhaar_card_number">Aadhaar Card Number:</label>
+            <input type="text" id="aadhaar_card_number" name="aadhaar_card_number" required pattern="\d{12}" title="Please enter a valid 12-digit Aadhaar number"><br>
+        </fieldset>
+         
+                </form>
+              </div>
+              
+            </div>
+          </div>
+          
+          
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+    <footer class="container-fluid text-center">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="NewApplication1.html">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="NewApplication3.html">3</a></li>
+            <li class="page-item"><a class="page-link" href="NewApplication4.html">4</a></li>
+
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+      </footer>
+</footer>
+
+</body>
+</html>

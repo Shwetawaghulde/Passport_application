@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 5px; /* Reduce padding */
+      position: fixed; /* Fixed positioning */
+      bottom: 0; /* Stick to the bottom */
+      width: 100%; /* Full width */
+    }
+    form {
+    margin-bottom: 100px; /* Increase or decrease as needed */
+  }
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: 100vh;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+    
+    /* Custom styling for form */
+    form fieldset {
+      margin-bottom: 20px;
+    }
+    form label {
+      font-weight: bold;
+    }
+    form input[type="text"],
+    form input[type="date"],
+    form select,
+    form textarea,
+    form input[type="email"],
+    form input[type="tel"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav justify-content">
+        <li ><a href="loginpage1.html">Login</a></li>
+        <li><a href="sign-up.html">Sign-up</a></li>
+        <li class="active"><a href="NewApplication.html">New passport</a></li>
+        <li><a href="RenewApplication1.html">Renew passport Application</a></li>
+        <li><a href="ApplicationStatus1.html">Application Status</a></li>
+        <li><a href="homepage1.html">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="loginpage1.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="loginpage1.html">Login</a></p>
+      <p><a href="sign-up1.html">Sign-up</a></p>
+      <p><a href="NewApplication1.html">New passport Application</a></p>
+      <p><a href="RenewApplication.html">Renew passport Application</a></p>
+      <p><a href="ApplicationStatus.html">Application Status</p>
+      <p><a href="homepage1.html">Home</a></p>
+    </div>
+    <div class="col-sm-8 text-left"> 
+        
+          
+          <div class="container-fluid text-center">    
+            <div class="row content">
+              
+              <div class="col-sm-8 text-left"> 
+                <h1 class="bg-info">New Passport Application</h1>
+                <form action="/submit_passport_application" method="POST" enctype="multipart/form-data">
+                   <!-- Employment Details Section -->
+        <fieldset>
+            <legend>Employment Details</legend>
+            <label>Employment Type:</label><br>
+            <input type="radio" id="employment_psu" name="employment_type" value="psu" required>
+            <label for="employment_psu">PSU</label><br>
+            <input type="radio" id="employment_government" name="employment_type" value="government">
+            <label for="employment_government">Government</label><br>
+            <input type="radio" id="employment_statutory_body" name="employment_type" value="statutory_body">
+            <label for="employment_statutory_body">Statutory Body</label><br>
+            <input type="radio" id="employment_retired_government" name="employment_type" value="retired_government">
+            <label for="employment_retired_government">Retired Government Servant</label><br>
+            <input type="radio" id="employment_self_employed" name="employment_type" value="self_employed">
+            <label for="employment_self_employed">Self Employed</label><br>
+            <input type="radio" id="employment_private" name="employment_type" value="private">
+            <label for="employment_private">Private</label><br>
+            <input type="radio" id="employment_homemaker" name="employment_type" value="homemaker">
+            <label for="employment_homemaker">Homemaker</label><br>
+            <input type="radio" id="employment_not_employed" name="employment_type" value="not_employed">
+            <label for="employment_not_employed">Not Employed</label><br>
+            <input type="radio" id="employment_retired_private" name="employment_type" value="retired_private">
+            <label for="employment_retired_private">Retired-Private Service</label><br>
+            <input type="radio" id="employment_student" name="employment_type" value="student">
+            <label for="employment_student">Student</label><br>
+            <input type="radio" id="employment_others" name="employment_type" value="others">
+            <label for="employment_others">Others</label><br>
+            <input type="radio" id="employment_owners_partners" name="employment_type" value="owners_partners">
+            <label for="employment_owners_partners">Owners, Partners & Directors of companies which are members of CII, FICCI & ASSOCHAM</label><br>
+
+            <label for="organization_name">If employed in Government/Statutory Body/PSU, specify organization name:</label>
+            <input type="text" id="organization_name" name="organization_name"><br>
+
+            <label>Is either of your parent (in case of minor)/spouse, a government servant?</label><br>
+            <input type="radio" id="govt_servant_yes" name="govt_servant" value="yes" required>
+            <label for="govt_servant_yes">Yes</label>
+            <input type="radio" id="govt_servant_no" name="govt_servant" value="no">
+            <label for="govt_servant_no">No</label>
+        </fieldset>
+        <!-- Family Details Section -->
+        <fieldset>
+            <legend>Family Details</legend>
+            <label for="father_given_name">Father's Given Name:</label>
+            <input type="text" id="father_given_name" name="father_given_name" required><br>
+            
+            <label for="father_surname">Father's Surname:</label>
+            <input type="text" id="father_surname" name="father_surname" required><br>
+            
+            <label for="mother_given_name">Mother's Given Name:</label>
+            <input type="text" id="mother_given_name" name="mother_given_name" required><br>
+            
+            <label for="mother_surname">Mother's Surname:</label>
+            <input type="text" id="mother_surname" name="mother_surname" required><br>
+            
+            <label for="legal_guardian_given_name">Legal Guardian's Given Name (If applicable):</label>
+            <input type="text" id="legal_guardian_given_name" name="legal_guardian_given_name"><br>
+            
+            <label for="legal_guardian_surname">Legal Guardian's Surname:</label>
+            <input type="text" id="legal_guardian_surname" name="legal_guardian_surname"><br>
+            
+            <label for="spouse_given_name">Spouse's Given Name:</label>
+            <input type="text" id="spouse_given_name" name="spouse_given_name"><br>
+            
+            <label for="spouse_surname">Spouse's Surname:</label>
+            <input type="text" id="spouse_surname" name="spouse_surname"><br>
+            
+            <label>If applicant is a minor, provide the following details:</label><br>
+            
+            <label for="father_passport_number">Father/Legal Guardian's File/Passport Number:</label>
+            <input type="text" id="father_passport_number" name="father_passport_number"><br>
+            
+            <label for="father_nationality">Father/Legal Guardian's Nationality (if not Indian):</label>
+            <input type="text" id="father_nationality" name="father_nationality"><br>
+            
+            <label for="mother_passport_number">Mother/Legal Guardian's File/Passport Number:</label>
+            <input type="text" id="mother_passport_number" name="mother_passport_number"><br>
+            
+            <label for="mother_nationality">Mother/Legal Guardian's Nationality (if not Indian):</label>
+            <input type="text" id="mother_nationality" name="mother_nationality"><br>
+        </fieldset>
+        
+                </form>
+              </div>
+              
+            </div>
+          </div>
+          
+          
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<footer class="container-fluid text-center">
+    <footer class="container-fluid text-center">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="NewApplication1.html">1</a></li>
+            <li class="page-item"><a class="page-link" href="NewApplication2.html">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="NewApplication4.html">4</a></li>
+
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+      </footer>
+</footer>
+</body>
+
+</html>

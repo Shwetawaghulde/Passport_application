@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Passport Renewal Application</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: auto}
+
+    /* Set gray background color and 100% height */
+    .sidenav {
+  padding-top: 20px;
+  background-color: #f1f1f1;
+  height: auto; /* Change height to auto */
+  min-height: 100%; /* Adjust this value according to your form's height */
+}
+    
+    /* Style the form elements */
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
+      margin-bottom: 50px; /* Added margin to ensure the form does not overlap with the footer */
+    }
+
+    fieldset {
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 20px;
+    }
+
+    legend {
+      font-size: 1.2em;
+      font-weight: bold;
+      width: auto;
+      padding: 0 10px;
+      border-bottom: none;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    input[type="month"],
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: auto;
+      margin-top: 0;
+      display: inline-block;
+    }
+
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+    }
+    
+    /* Customizing buttons */
+    .btn-info {
+      background-color: #5bc0de;
+      border-color: #46b8da;
+      margin-top: 20px;
+    }
+
+    .btn-info:hover {
+      background-color: #31b0d5;
+      border-color: #269abc;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav justify-content">
+        <li><a href="loginpage1.html">Login</a></li>
+        <li><a href="sign-up.html">Sign-up</a></li>
+        <li><a href="NewApplication1.html">New passport</a></li>
+        <li class="active"><a href="RenewApplication1.html">Renew passport Application</a></li>
+        <li><a href="ApplicationStatus1.html">Application Status</a></li>
+        <li><a href="homepage1.html">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="loginpage1.html">Login</a></p>
+      <p><a href="sign-up1.html">Sign-up</a></p>
+      <p><a href="NewApplication1.html">New passport Application</a></p>
+      <p><a href="RenewApplication1.html">Renew passport Application</a></p>
+      <p><a href="ApplicationStatus1.html">Application Status</a></p>
+      <p><a href="feedback1.html">Feedback</a></p>
+            <p><a href="payment1.html">Payment</a></p>
+      <p><a href="homepage1.html">Home</a></p>
+    </div>
+    <div class="col-sm-8 text-left"> 
+      <h1>Passport Renewal Application</h1>
+      <form action="/submit_passport_renewal" method="POST" enctype="multipart/form-data">
+        <!-- Personal Information -->
+        <fieldset>
+            <legend>Personal Information</legend>
+            <label for="full_name">Full Name:</label>
+            <input type="text" id="full_name" name="full_name" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" required>
+
+            <label>Gender:</label><br>
+            <input type="radio" id="male" name="gender" value="male" required>
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+        </fieldset>
+
+        <!-- Previous Passport/Application Details -->
+        <fieldset>
+            <legend>Previous Passport/Application Details</legend>
+            <label for="passport_number">Passport/Identity Certificate Number:</label>
+            <input type="text" id="passport_number" name="passport_number" required>
+
+            <label for="date_of_issue">Date of Issue:</label>
+            <input type="date" id="date_of_issue" name="date_of_issue" required>
+
+            <label for="date_of_expiry">Date of Expiry:</label>
+            <input type="date" id="date_of_expiry" name="date_of_expiry" required>
+
+            <label for="place_of_issue">Place of Issue:</label>
+            <input type="text" id="place_of_issue" name="place_of_issue" required>
+
+            <label for="diplomatic_passport">Have you held a diplomatic/official passport?</label>
+            <input type="checkbox" id="diplomatic_passport" name="diplomatic_passport">
+        </fieldset>
+
+        <!-- Additional Fields -->
+        <fieldset>
+            <legend>Additional Fields</legend>
+            <label for="applied_not_issued">Have you ever applied for passport, but not issued?</label>
+            <input type="checkbox" id="applied_not_issued" name="applied_not_issued">
+            
+            <label for="file_number">File Number:</label>
+            <input type="text" id="file_number" name="file_number">
+            
+            <label for="month_year_applying">Month and Year of applying:</label>
+            <input type="month" id="month_year_applying" name="month_year_applying">
+            
+            <label for="passport_office">Name of passport office where applied:</label>
+            <input type="text" id="passport_office" name="passport_office">
+        </fieldset>
+
+        <!-- Self Declaration -->
+        <fieldset>
+            <legend>Self Declaration</legend>
+            <p>I owe allegiance to the sovereignty, unity & integrity of India, and have not voluntarily acquired citizenship or travel document of any other country. I have not lost, surrendered, or been deprived of the citizenship of India. I have not contravened any of the conditions relating to the possession and use of an Indian passport.</p>
+            <p>I affirm that the information and particulars given by me in this form are true and correct. I further state that I am not suppressing any material information in this regard. I further affirm that the enclosures and documentary proof submitted in support of my application for an Indian passport are authentic and solely pertain to me and I am fully responsible for the accuracy of the same. I am liable to be penalized or prosecuted if found otherwise. I am aware that under the Passports Act, 1967, it is a criminal offence to furnish any false information or to suppress any material information with a view to obtaining passport or travel document.</p>
+            <p>I have read and understood the contents of the above and by submitting this form certify that all the information submitted by me in the form is bonafide.</p>
+            <label for="place">Place:</label>
+            <input type="text" id="place" name="place" required>
+            <label for="date">Date (DD-MM-YYYY):</label>
+            <input type="text" id="date" name="date" placeholder="DD-MM-YYYY" required pattern="\d{2}-\d{2}-\d{4}">
+        </fieldset>
+
+        <button type="submit" class="btn btn-info">Submit Renewal Application</button>
+      </form>
+    </div>
+    
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+  <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:xyz@example.com">xyz@example.com</a></p>
+    <p>Phone: 123-456-7890</p>
+    <p>&copy; 2024 Online Passport Registration. All rights reserved. | <a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-of-service">Terms of Service</a></p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    form {
+    margin-bottom: 100px; /* Increase or decrease as needed */
+  }
+    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      
+      height: 100%;
+    }
+    
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 3px; /* Reduce padding */
+      position: fixed; /* Fixed positioning */
+      bottom: 0; /* Stick to the bottom */
+      width: 100%; /* Full width */
+      height: 70px;
+    }
+    
+    /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: 100vh;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+    
+    /* Custom styling for form */
+    form fieldset {
+      margin-bottom: 20px;
+    }
+    form label {
+      font-weight: bold;
+    }
+    form input[type="text"],
+    form input[type="date"],
+    form select,
+    form textarea,
+    form input[type="email"],
+    form input[type="tel"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav justify-content">
+        <li ><a href="loginpage1.html">Login</a></li>
+        <li><a href="sign-up.html">Sign-up</a></li>
+        <li class="active"><a href="NewApplication.html">New passport</a></li>
+        <li><a href="RenewApplication1.html">Renew passport Application</a></li>
+        <li><a href="ApplicationStatus1.html">Application Status</a></li>
+        <li><a href="homepage1.html">Home</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="loginpage1.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="loginpage1.html">Login</a></p>
+      <p><a href="sign-up1.html">Sign-up</a></p>
+      <p><a href="NewApplication1.html">New passport Application</a></p>
+      <p><a href="RenewApplication.html">Renew passport Application</a></p>
+      <p><a href="ApplicationStatus.html">Application Status</p>
+      <p><a href="homepage1.html">Home</a></p>
+    </div>
+    <div class="col-sm-8 text-left"> 
+        
+          
+          <div class="container-fluid text-center">    
+            <div class="row content">
+              
+              <div class="col-sm-8 text-left"> 
+                <h1 class="bg-info">New Passport Application</h1>
+                <form action="/submit_passport_application" method="POST" enctype="multipart/form-data">
+                  <!-- Supporting Documents Upload -->
+        <fieldset>
+            <legend>Supporting Documents Upload</legend>
+            <label for="id_proof">ID Proof:</label>
+            <input type="file" id="id_proof" name="id_proof" accept="image/*" required><br>
+
+            <label for="photo">Photograph:</label>
+            <input type="file" id="photo" name="photo" accept="image/*" required><br>
+
+            <label for="proof_of_address">Proof of Address:</label>
+            <input type="file" id="proof_of_address" name="proof_of_address" accept="image/*" required>
+        </fieldset>
+                    <!-- Criminal Proceedings and Passport History -->
+<fieldset>
+    <legend>Criminal Proceedings and Passport History</legend>
+    
+    <label>Are any proceedings in respect of an offence alleged to have been committed by you pending before a criminal court in India?</label>
+    <input type="radio" id="proceedings_yes" name="proceedings" value="yes">
+    <label for="proceedings_yes">Yes</label>
+    <input type="radio" id="proceedings_no" name="proceedings" value="no">
+    <label for="proceedings_no">No</label><br>
+    
+    <label>Has any warrant or summons for your appearance been issued & pending before a court under any law for the time being in force?</label>
+    <input type="radio" id="summons_yes" name="summons" value="yes">
+    <label for="summons_yes">Yes</label>
+    <input type="radio" id="summons_no" name="summons" value="no">
+    <label for="summons_no">No</label><br>
+    
+    <label>Has a warrant for your arrest been issued by a court under any law for the time being in force?</label>
+    <input type="radio" id="arrest_warrant_yes" name="arrest_warrant" value="yes">
+    <label for="arrest_warrant_yes">Yes</label>
+    <input type="radio" id="arrest_warrant_no" name="arrest_warrant" value="no">
+    <label for="arrest_warrant_no">No</label><br>
+    </fieldset>
+    <!-- Foreign Citizenship Details -->
+<fieldset>
+    <legend>Foreign Citizenship Details</legend>
+    
+    <label>Have you ever been granted citizenship by any other region/country?</label>
+    <input type="radio" id="foreign_citizenship_yes" name="foreign_citizenship" value="yes">
+    <label for="foreign_citizenship_yes">Yes</label>
+    <input type="radio" id="foreign_citizenship_no" name="foreign_citizenship" value="no">
+    <label for="foreign_citizenship_no">No</label><br>
+    
+    <label>Have you ever held the passport of any other region/country at any time?</label>
+    <input type="radio" id="foreign_passport_yes" name="foreign_passport" value="yes">
+    <label for="foreign_passport_yes">Yes</label>
+    <input type="radio" id="foreign_passport_no" name="foreign_passport" value="no">
+    <label for="foreign_passport_no">No</label><br>
+    
+    <!-- Add similar fields for other questions -->
+</fieldset>
+
+<!-- Emergency Certificate and Deportation Details -->
+<fieldset>
+    <legend>Emergency Certificate and Deportation Details</legend>
+    
+    <label>Have you ever returned to India on Emergency Certificate (EC)?</label>
+    <input type="radio" id="emergency_certificate_yes" name="emergency_certificate" value="yes">
+    <label for="emergency_certificate_yes">Yes</label>
+    <input type="radio" id="emergency_certificate_no" name="emergency_certificate" value="no">
+    <label for="emergency_certificate_no">No</label><br>
+    
+    <label>Have you ever been deported from any country?</label>
+    <input type="radio" id="deported_yes" name="deported" value="yes">
+    <label for="deported_yes">Yes</label>
+    <input type="radio" id="deported_no" name="deported" value="no">
+    <label for="deported_no">No</label><br>
+    
+    <label>Have you ever been repatriated from any country back to India?</label>
+    <input type="radio" id="repatriated_yes" name="repatriated" value="yes">
+    <label for="repatriated_yes">Yes</label>
+    <input type="radio" id="repatriated_no" name="repatriated" value="no">
+    <label for="repatriated_no">No</label><br>
+    
+    <!-- Self Declaration Section -->
+<fieldset>
+    <legend>Self Declaration</legend>
+    
+    <p>I owe allegiance to the sovereignty, unity & integrity of India, and have not voluntarily acquired citizenship or travel document of any other country. I have not lost, surrendered or been deprived of the citizenship of India. I have not contravened any of the conditions relating to the possession and use of an Indian passport.</p>
+    
+    <p>I affirm that the information and particulars given by me in this form are true and correct. I further state that I am not suppressing any material information in this regard. I further affirm that the enclosures and documentary proof submitted in support of my application for an Indian passport are authentic and solely pertain to me and I am fully responsible for the accuracy of the same. I am liable to be penalized or prosecuted if found otherwise. I am aware that under the Passports Act, 1967 it is a criminal offence to furnish any false information or to suppress any material information with a view to obtaining passport or travel document.</p>
+    
+    <p>I have read and understood the contents of the above and by submitting this form certify that all the information submitted by me in the form is bonafide.</p>
+    
+    <input type="checkbox" id="self_declaration" name="self_declaration" required>
+    <label for="self_declaration">I agree to the self-declaration above</label>
+    <label for="place">Place:</label>
+            <input type="text" id="place" name="place" required><br>
+
+            <label for="date">Date (DD-MM-YYYY):</label>
+            <input type="date" id="date" name="date" required><br>
+</fieldset>
+    <!-- E-signature Section -->
+<!-- <fieldset>
+    <legend>E-signature</legend>
+    
+    <p>Please provide your electronic signature:</p>
+    <canvas id="signatureCanvas" width="400" height="200"></canvas>
+     <button onclick="clearSignature()">Clear Signature</button> 
+</fieldset> -->
+<button type="submit" class="btn btn-info">Submit Application</button>
+
+</fieldset>
+
+         
+                </form>
+              </div>
+              
+            </div>
+          </div>
+          
+          
+    </div>
+    <div class="col-sm-2 sidenav">
+      <div class="well">
+        <p>ADS</p>
+      </div>
+      <div class="well">
+        <p>ADS</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="container-fluid text-center">
+    <footer class="container-fluid text-center">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="NewApplication1.html">1</a></li>
+            <li class="page-item"><a class="page-link" href="NewApplication2.html">2</a></li>
+            <li class="page-item"><a class="page-link" href="NewApplication3.html">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">4</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+      </footer>
+</footer>
+
+</body>
+</html>
