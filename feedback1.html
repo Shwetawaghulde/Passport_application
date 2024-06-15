@@ -16,14 +16,15 @@
     
     /* Set gray background color and 100% height */
     .sidenav {
-  padding-top: 20px;
-  background-color: #f1f1f1;
-  height: 100%;
-  position: fixed; /* Fixed position to stay at the same place while scrolling */
-  left: 0; /* Stick to the extreme left */
-  width: 200px; /* Set a fixed width */
-  overflow-x: hidden; /* Hide horizontal overflow */
-}
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      height: 100%;
+      position: fixed; /* Fixed position to stay at the same place while scrolling */
+      left: 0; /* Stick to the extreme left */
+      width: 200px; /* Set a fixed width */
+      overflow-x: hidden; /* Hide horizontal overflow */
+    }
+    
     /* Style the footer */
     footer {
       position: fixed;
@@ -76,16 +77,16 @@
       <a class="navbar-brand" href="#">Logo</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav justify-content">
-            <li><a href="loginpage1.html">Home</a></li>
-            <li><a href="sign-up.html">Sign-up</a></li>
-            <li><a href="NewApplication1.html">New passport</a></li>
-            <li><a href="RenewApplication1.html">Renew passport Application</a></li>
-            <li class="active"><a href="ApplicationStatus1.html">Application Status</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="loginpage1.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-          </ul>
+      <ul class="nav navbar-nav justify-content">
+        <li><a href="loginpage1.html">Home</a></li>
+        <li><a href="sign-up.html">Sign-up</a></li>
+        <li><a href="NewApplication1.html">New passport</a></li>
+        <li><a href="RenewApplication1.html">Renew passport Application</a></li>
+        <li class="active"><a href="ApplicationStatus1.html">Application Status</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="loginpage1.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
     </div>
   </div>
 </nav>
@@ -93,47 +94,46 @@
 <div class="container text-center">    
   <div class="row">
     <div class="col-sm-2 sidenav">
-        <p><a href="loginpage1.html">Login</a></p>
-        <p><a href="sign-up1.html">Sign-up</a></p>
-        <p><a href="NewApplication1.html">New passport Application</a></p>
-        <p><a href="RenewApplication1.html">Renew passport Application</a></p>
-        <p><a href="ApplicationStatus1.html">Application Status</a></p>
-        <p><a href="feedback1.html">Feedback</a></p>
-        <p><a href="payment1.html">Payment</a></p>
-        <p><a href="homepage1.html">Home</a></p>
-      </div>
-    <div class="col-sm-8 text-left"> 
-        <header>
-            <h1>Feedback or Complaint Form</h1>
-        </header>
-    
-        <!-- Feedback Form -->
-        <form action="/submit_feedback" method="POST">
-            <div class="form-group">
-                <label for="name">Name:</label>
-                <input type="text" class="form-control" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" class="form-control" id="email" name="email">
-            </div>
-            <div class="form-group">
-                <label for="subject">Subject:</label>
-                <input type="text" class="form-control" id="subject" name="subject" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Message:</label>
-                <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-success">Submit</button>
-        </form>
-    
-        <!-- Thank You Message -->
-        <div id="thank-you" style="display: none;">
-            <p>Thank you for your feedback!</p>
-        </div>
+      <p><a href="loginpage1.html">Login</a></p>
+      <p><a href="sign-up1.html">Sign-up</a></p>
+      <p><a href="NewApplication1.html">New passport Application</a></p>
+      <p><a href="RenewApplication1.html">Renew passport Application</a></p>
+      <p><a href="ApplicationStatus1.html">Application Status</a></p>
+      <p><a href="feedback1.html">Feedback</a></p>
+      <p><a href="payment1.html">Payment</a></p>
+      <p><a href="homepage1.html">Home</a></p>
     </div>
-    
+    <div class="col-sm-8 text-left p-3" style="margin-left: 220px;"> 
+      <header>
+        <h1>Feedback or Complaint Form</h1>
+      </header>
+  
+      <!-- Feedback Form -->
+      <form action="/submit_feedback" method="POST">
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" class="form-control" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control" id="email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject:</label>
+          <input type="text" class="form-control" id="subject" name="subject" required>
+        </div>
+        <div class="form-group">
+          <label for="message">Message:</label>
+          <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </form>
+  
+      <!-- Thank You Message -->
+      <div id="thank-you" style="display: none;">
+        <p>Thank you for your feedback!</p>
+      </div>
+    </div>
   </div>
 </div>
 
