@@ -8,26 +8,18 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
     }
     
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
     .row.content {height: 450px}
     
-    /* Set gray background color and 100% height */
-   .sidenav {
+    .sidenav {
       padding-top: 20px;
       background-color: #f1f1f1;
-      
-      height: 1250px;
-      flex: 0 0 250px; /* Increase width */
-      font-size: 18px; /* Increase font size */
-      margin-top: 20px;
-      margin-left: 20px;
-      margin-right: 20px;
+      height: 700px;
+      font-size: 18px;
     }
 
     .sidenav p a {
@@ -41,37 +33,19 @@
       background-color: #ddd;
     }
 
-    
-    /* Adjust content margin to account for the fixed sidenav */
     footer {
       background-color: #555;
       color: white;
       padding: 15px;
       text-align: center;
-      margin-top: 20px; /* Added space above footer */
-    }
-    .navbar-brand.logo img {
-      max-width: 40px; /* Adjust max-width as needed */
-      height: auto; /* Maintain aspect ratio */
-      margin-top: -8px; /* Adjust vertical alignment if necessary */
-    }
-    @media screen and (max-width: 767px) {
-      .sidenav {
-        height: 100vh;
-        padding: 15px;
-      }
-      .row.content {height:auto;} 
     }
 
-    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
+    .navbar-brand.logo img {
+      max-width: 40px;
+      height: auto;
+      margin-top: -8px;
     }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
+
     @media screen and (max-width: 767px) {
       .sidenav {
         height: auto;
@@ -94,13 +68,12 @@
       <a class="navbar-brand" href="#">Logo</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav justify-content">
+        <ul class="nav navbar-nav">
             <li class="active"><a href="loginpage1.html">Home</a></li>
             <li><a href="sign-up.html">Sign-up</a></li>
             <li><a href="NewApplication1.html">New passport</a></li>
             <li><a href="RenewApplication1.html">Renew passport Application</a></li>
             <li><a href="ApplicationStatus1.html">Application Status</a></li>
-            
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="loginpage1.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -121,7 +94,7 @@
         <p><a href="payment1.html">Payment</a></p>
         <p><a href="homepage1.html">Home</a></p>
       </div>
-    <div class="col-sm-8 col-sm-offset-2 text-left"> <!-- Adjusted width and offset -->
+    <div class="col-sm-8 text-left">
       <header>
         <h1>Passport Application Payment</h1>
     </header>
@@ -184,11 +157,9 @@
             <li><strong>How can I contact support?</strong><br> You can reach out to our support team via email at support@example.com or by phone at 123-456-7890.</li>
             <li><strong>What payment methods are accepted?</strong><br> We accept major credit and debit cards, including Visa, Mastercard, and American Express.</li>
             <li><strong>Is my payment information secure?</strong><br> Yes, we utilize industry-standard encryption to protect your payment information.</li>
-            <!-- Add more FAQs as needed -->
         </ul>
     </section>
     </div>
-   
   </div>
 </div>
 
