@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Passport Application Form</title>
+  <title>Bootstrap Example</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -20,7 +20,47 @@
     /* Set gray background color and 100% height */
     .sidenav {
       padding-top: 20px;
-      height: 100%;
+      background-color: #f1f1f1;
+      
+      height: 1250px;
+      flex: 0 0 250px; /* Increase width */
+      font-size: 18px; /* Increase font size */
+      margin-top: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .sidenav p a {
+      display: block;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .sidenav p a:hover {
+      background-color: #ddd;
+    }
+
+    
+    /* Adjust content margin to account for the fixed sidenav */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      margin-top: 20px; /* Added space above footer */
+    }
+    .navbar-brand.logo img {
+      max-width: 40px; /* Adjust max-width as needed */
+      height: auto; /* Maintain aspect ratio */
+      margin-top: -8px; /* Adjust vertical alignment if necessary */
+    }
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: 100vh;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
     }
     
     /* Set black background color, white text and some padding */
@@ -99,29 +139,35 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="loginpage1.html">Login</a></p>
-      <p><a href="sign-up1.html">Sign-up</a></p>
-      <p><a href="NewApplication1.html">New passport Application</a></p>
-      <p><a href="RenewApplication1.html">Renew passport Application</a></p>
-      <p><a href="ApplicationStatus1.html">Application Status</a></p>
-      <p><a href="homepage1.html">Home</a></p>
-    </div>
+        <p><a href="loginpage1.html">Login</a></p>
+        <p><a href="sign-up1.html">Sign-up</a></p>
+        <p><a href="NewApplication1.html">New passport Application</a></p>
+        <p><a href="RenewApplication1.html">Renew passport Application</a></p>
+        <p><a href="ApplicationStatus1.html">Application Status</p>
+        <p><a href="homepage1.html">Home</a></p>
+      </div>
     <div class="col-sm-8 text-left"> 
-      <h1 class="bg-info">New Passport Application</h1>
-
-      <!-- Page 1 -->
-      <div id="page1" class="page">
-        <form action="page2.html" method="POST" enctype="multipart/form-data">
-          <fieldset>
+        
+          
+          <div class="container-fluid text-center">    
+            <div class="row content">
+              
+              <div class="col-sm-8 text-left"> 
+                <h1 class="bg-info">New Passport Application</h1>
+                <form action="/submit_passport_application" method="POST" enctype="multipart/form-data">
+                   <!-- Personal Information -->
+        <fieldset>
             <legend>Personal Information</legend>
             <div class="form-group">
               <label for="full_name">Full Name:</label>
               <input type="text" id="full_name" name="full_name" class="form-control" required>
             </div>
+
             <div class="form-group">
               <label for="dob">Date of Birth:</label>
               <input type="date" id="dob" name="dob" class="form-control" required>
             </div>
+
             <div class="form-group">
               <label>Gender:</label>
               <div>
@@ -129,225 +175,97 @@
                 <label class="radio-inline"><input type="radio" id="female" name="gender" value="female">Female</label>
               </div>
             </div>
+
             <div class="form-group">
               <label for="nationality">Nationality:</label>
               <select id="nationality" name="nationality" class="form-control" required>
-                <option value="">Select Nationality</option>
-                <option value="us">United States</option>
-                <option value="uk">United Kingdom</option>
-                <option value="Ind">India</option>
+                  <option value="">Select Nationality</option>
+                  <option value="us">United States</option>
+                  <option value="uk">United Kingdom</option>
+                  <option value="Ind">India</option>
+                  <!-- Add more options as needed -->
               </select>
             </div>
+
             <div class="form-group">
               <label for="occupation">Occupation:</label>
               <input type="text" id="occupation" name="occupation" class="form-control">
             </div>
+            
             <div class="form-group">
               <label for="marital_status">Marital Status:</label>
               <select id="marital_status" name="marital_status" class="form-control" required>
-                <option value="">Select Marital Status</option>
-                <option value="single">Single</option>
-                <option value="married">Married</option>
-                <option value="divorced">Divorced</option>
-                <option value="widow_widower">Widow/Widower</option>
-                <option value="separated">Separated</option>
+                  <option value="">Select Marital Status</option>
+                  <option value="single">Single</option>
+                  <option value="married">Married</option>
+                  <option value="divorced">Divorced</option>
+                  <option value="widow_widower">Widow/Widower</option>
+                  <option value="separated">Separated</option>
               </select>
             </div>
+
             <div class="form-group">
-              <label>Citizenship of India by:</label>
-              <div>
-                <label class="radio-inline"><input type="radio" id="birth" name="citizenship" value="birth" required>Birth</label>
-                <label class="radio-inline"><input type="radio" id="descent" name="citizenship" value="descent">Descent</label>
-                <label class="radio-inline"><input type="radio" id="registration" name="citizenship" value="registration">Registration/Naturalization</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="pan">PAN (If available):</label>
-              <input type="text" id="pan" name="pan" class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="voter_id">Voter ID (If available):</label>
-              <input type="text" id="voter_id" name="voter_id" class="form-control">
-            </div>
-          </fieldset>
-          <div class="form-group text-center">
-            <button type="submit" class="btn btn-primary">Next</button>
-          </div>
-        </form>
-      </div>
-      
-      <!-- Page 2 -->
-      <div id="page2" class="page">
-        <form action="page3.html" method="POST" enctype="multipart/form-data">
-          <fieldset>
+              <label>Citizenship of India by:</label><br>
+              <label class="radio-inline"><input type="radio" id="birth" name="citizenship" value="birth" required>Birth</label>
+              <label class="radio-inline"><input type="radio" id="descent" name="citizenship" value="descent">Descent</label>
+              <label class="radio-inline"><input type="radio" id="registration" name="citizenship" value="registration">Registration/Naturalization</label
+<br>
+
+            <label>Citizenship of India by:</label>
+            <input type="radio" id="birth" name="citizenship" value="birth" required>
+            <label for="birth">Birth</label>
+            <input type="radio" id="descent" name="citizenship" value="descent">
+            <label for="descent">Descent</label>
+            <input type="radio" id="registration" name="citizenship" value="registration">
+            <label for="registration">Registration/Naturalization</label><br>
+
+            <label for="pan">PAN (If available):</label>
+            <input type="text" id="pan" name="pan"><br>
+
+            <label for="voter_id">Voter ID (If available):</label>
+            <input type="text" id="voter_id" name="voter_id">
+        </fieldset>
+        <!-- Contact Information -->
+        <fieldset>
             <legend>Contact Information</legend>
-            <div class="form-group">
-              <label for="address">Address:</label>
-              <textarea id="address" name="address" rows="4" cols="30" class="form-control" required></textarea>
-            </div>
-            <div class="form-group">
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone:</label>
-              <input type="tel" id="phone" name="phone" class="form-control" required>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Present Residential Address Details</legend>
-            <div class="form-group">
-              <label for="present_address">Present Residential Address:</label>
-              <textarea id="present_address" name="present_address" rows="4" cols="30" class="form-control" required></textarea>
-            </div>
-            <div class="form-group">
-              <label for="city">City:</label>
-              <input type="text" id="city" name="city" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="state">State:</label>
-              <input type="text" id="state" name="state" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="zip">Zip Code:</label>
-              <input type="text" id="zip" name="zip" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label>Is permanent address the same as present address?:</label>
-              <div>
-                <label class="radio-inline"><input type="radio" id="address_yes" name="address_same" value="yes" required>Yes</label>
-                <label class="radio-inline"><input type="radio" id="address_no" name="address_same" value="no">No</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="emergency_contact">Emergency Contact:</label>
-              <input type="tel" id="emergency_contact" name="emergency_contact" class="form-control" required>
-            </div>
-          </fieldset>
-          <div class="form-group text-center">
-            <a href="page1.html" class="btn btn-default">Previous</a>
-            <button type="submit" class="btn btn-primary">Next</button>
-          </div>
-        </form>
-      </div>
+            <label for="address">Address:</label>
+            <textarea id="address" name="address" rows="4" cols="30" required></textarea><br>
 
-      <!-- Page 3 -->
-      <div id="page3" class="page">
-        <form action="page4.html" method="POST" enctype="multipart/form-data">
-          <fieldset>
-            <legend>Passport Information</legend>
-            <div class="form-group">
-              <label>Are you eligible for Non-ECR category?:</label>
-              <div>
-                <label class="radio-inline"><input type="radio" id="non_ecr_yes" name="non_ecr" value="yes" required>Yes</label>
-                <label class="radio-inline"><input type="radio" id="non_ecr_no" name="non_ecr" value="no">No</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Do you have a valid passport?:</label>
-              <div>
-                <label class="radio-inline"><input type="radio" id="passport_yes" name="valid_passport" value="yes" required>Yes</label>
-                <label class="radio-inline"><input type="radio" id="passport_no" name="valid_passport" value="no">No</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="passport_details">If yes, provide passport details:</label>
-              <textarea id="passport_details" name="passport_details" rows="4" cols="30" class="form-control"></textarea>
-            </div>
-            <div class="form-group">
-              <label for="passport_office">Preferred Passport Office:</label>
-              <input type="text" id="passport_office" name="passport_office" class="form-control" required>
-            </div>
-          </fieldset>
-          <fieldset>
-            <legend>Upload Documents</legend>
-            <div class="form-group">
-              <label for="identity_proof">Identity Proof:</label>
-              <input type="file" id="identity_proof" name="identity_proof" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="address_proof">Address Proof:</label>
-              <input type="file" id="address_proof" name="address_proof" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="birth_proof">Proof of Birth:</label>
-              <input type="file" id="birth_proof" name="birth_proof" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="passport_photo">Passport Size Photo:</label>
-              <input type="file" id="passport_photo" name="passport_photo" class="form-control" required>
-            </div>
-          </fieldset>
-          <div class="form-group text-center">
-            <a href="page2.html" class="btn btn-default">Previous</a>
-            <button type="submit" class="btn btn-primary">Next</button>
-          </div>
-        </form>
-      </div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br>
 
-      <!-- Page 4 -->
-      <div id="page4" class="page">
-        <form action="submit.html" method="POST" enctype="multipart/form-data">
-          <fieldset>
-            <legend>Other Details</legend>
-            <div class="form-group">
-              <label for="education">Educational Qualification:</label>
-              <input type="text" id="education" name="education" class="form-control" required>
-            </div>
-            <div class="form-group">
-              <label for="employment">Employment Type:</label>
-              <select id="employment" name="employment" class="form-control" required>
-                <option value="">Select Employment Type</option>
-                <option value="government">Government</option>
-                <option value="private">Private</option>
-                <option value="self_employed">Self-Employed</option>
-                <option value="student">Student</option>
-                <option value="unemployed">Unemployed</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label>Have you ever been charged with criminal offenses?:</label>
-              <div>
-                <label class="radio-inline"><input type="radio" id="criminal_yes" name="criminal_offenses" value="yes" required>Yes</label>
-                <label class="radio-inline"><input type="radio" id="criminal_no" name="criminal_offenses" value="no">No</label>
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+        </fieldset>
+         
+                </form>
               </div>
+              
             </div>
-            <div class="form-group">
-              <label>Have you ever been denied or had a passport revoked?:</label>
-              <div>
-                <label class="radio-inline"><input type="radio" id="revoked_yes" name="passport_revoked" value="yes" required>Yes</label>
-                <label class="radio-inline"><input type="radio" id="revoked_no" name="passport_revoked" value="no">No</label>
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Have you traveled abroad before?:</label>
-              <div>
-                <label class="radio-inline"><input type="radio" id="abroad_yes" name="traveled_abroad" value="yes" required>Yes</label>
-                <label class="radio-inline"><input type="radio" id="abroad_no" name="traveled_abroad" value="no">No</label>
-              </div>
-            </div>
-          </fieldset>
-          <div class="form-group text-center">
-            <a href="page3.html" class="btn btn-default">Previous</a>
-            <button type="submit" class="btn btn-success">Submit</button>
           </div>
-        </form>
-      </div>
-      
+          
+          
     </div>
-    <div class="col-sm-2 sidenav">
-      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
-      </div>
-    </div>
+   
   </div>
 </div>
 
-<footer>
-  <p>&copy; 2024 Online Passport Registration. All rights reserved. | <a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-of-service">Terms of Service</a></p>
+<footer class="container-fluid text-center">
+    <footer class="container-fluid text-center">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="NewApplication2.html">2</a></li>
+            <li class="page-item"><a class="page-link" href="NewApplication3.html">3</a></li>
+            <li class="page-item"><a class="page-link" href="NewApplication4.html">4</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Next</a>
+            </li>
+          </ul>
+      </footer>
+      
 </footer>
 
 </body>
