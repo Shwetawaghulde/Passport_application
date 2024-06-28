@@ -5,8 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -14,21 +12,55 @@
       border-radius: 0;
     }
     
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
     /* Set gray background color and 100% height */
+    /* Sidebar styles */
     .sidenav {
       padding-top: 20px;
       background-color: #f1f1f1;
-      height: 100%;
+      
+      height: 550px;
+      flex: 0 0 250px; /* Increase width */
+      font-size: 18px; /* Increase font size */
+      margin-top: 20px;
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    .sidenav p a {
+      display: block;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .sidenav p a:hover {
+      background-color: #ddd;
+    }
+    .navbar-brand.logo img {
+      max-width: 40px; /* Adjust max-width as needed */
+      height: auto; /* Maintain aspect ratio */
+      margin-top: -8px; /* Adjust vertical alignment if necessary */
     }
     
-    /* Set black background color, white text and some padding */
+    /* Adjust content margin to account for the fixed sidenav */
     footer {
       background-color: #555;
       color: white;
       padding: 15px;
+      text-align: center;
+      margin-top: 20px; /* Added space above footer */
+    }
+
+    /* Main content styles */
+    .main-content {
+      padding-top: 50px; /* Adjust padding to account for fixed navbar */
+    }
+    .signup-form {
+      background: #fff; /* Background color for clarity */
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+       /* Add margin to separate from sidebar */
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -36,13 +68,22 @@
       .sidenav {
         height: auto;
         padding: 15px;
+        position: static; /* Reset position for small screens */
+        width: 100%; /* Full width for small screens */
+        margin-bottom: 10px; /* Add some space below sidebar */
       }
-      .row.content {height:auto;} 
+      .main-content {
+        padding-top: 00px; /* Adjust padding */
+      }
     }
     .form-control {
-        max-width: 200px;
+        width: 100%; /* Make input fields full width */
+        max-width: 300px; /* Set max-width to prevent overly wide inputs */
     }
   </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 
@@ -54,75 +95,69 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand logo" href="#"><img src="plane.png" alt="Airplane Logo"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav justify-content">
-          <li class="active"><a href="loginpage1.html">Login</a></li>
-          <li><a href="sign-up.html">Sign-up</a></li>
-          <li><a href="NewApplication1.html">New passport</a></li>
-          <li><a href="RenewApplication1.html">Renew passport Application</a></li>
+          <!-- <li><a href="loginpage1.html">Login</a></li> -->
+          <li><a href="Sign-up.html">Sign-up</a></li>
+          <li><a href="NewApplication.html">New passport</a></li>
+          <li><a href="RenewApplication.html">Renew passport Application</a></li>
           <li><a href="ApplicationStatus1.html">Application Status</a></li>
-          <li><a href="homepage1.html">Home</a></li>
+          <li class="active"><a href="Homepage.html">Home</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="loginpage1.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><a href="Login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
         </ul>
       </div>
-  </div>
   </div>
 </nav>
   
-<div class="container-fluid text-center">    
-  <div class="row content">
+<div class="container-fluid">    
+  <div class="row">
     <div class="col-sm-2 sidenav">
-        <p><a href="loginpage1.html">Login</a></p>
-        <p><a href="sign-up1.html">Sign-up</a></p>
-        <p><a href="NewApplication1.html">New passport Application</a></p>
-        <p><a href="RenewApplication1.html">Renew passport Application</a></p>
-        <p><a href="ApplicationStatus1.html">Application Status</p>
-          <p><a href="feedback1.html">Feedback</a></p>
-            <p><a href="payment1.html">Payment</a></p>
-        <p><a href="homepage1.html">Home</a></p>
-      </div>
-    <div class="col-sm-8 text-left"> 
+      <p><a href="Login.html">Login</a></p>
+      <p><a href="Sign-up.html">Sign-up</a></p>
+      <p><a href="NewApplication.html">New passport Application</a></p>
+      <p><a href="RenewApplication.html">Renew passport Application</a></p>
+      <p><a href="ApplicationStatus.html">Application Status</a></p>
+      <p><a href="feedback1.html">Feedback</a></p>
+      <p><a href="payment1.html">Payment</a></p>
+      <p><a href="Homepage.html">Home</a></p>
+    </div>
+
+    <div class="col-sm-8 main-content"> 
+      <div class="signup-form">
         <h1 class="bg-info">Login to Passport Application</h1><br>
-        <form action="/login" method="POST">
+        <form id="loginForm">
             <div class="form-group">
                 <label for="username">Username:</label>
-                <input type="text" id="username" name="username" class="form-control" class="form-control col-md-2" required pattern="[a-zA-Z]+" title="Only alphabets are allowed">
+                <input type="text" id="username" name="username" class="form-control" required>
             </div>
             <div class="form-group">
                 <label for="password">Password:</label>
-                <input type="password" id="password" name="password" class="form-control" class="form-control col-md-2" required pattern="^(?=.*[0-9])(?=.*[!@#$%^&*()_+=-{};:'<>,./?]).{12,}$" title="Password should be at least 12 characters long and contain at least 1 number and 1 special character">
+                <input type="password" id="password" name="password" class="form-control" required>
             </div>
             <div class="form-group">
-                <a href="/forgot-password" id="forgot-password-link">Forgot Password?</a>
-            </div>
-            <div class="form-check">
                 <input type="checkbox" id="remember" name="remember">
                 <label for="remember">Remember Me</label>
             </div>
             <button type="submit" class="btn btn-primary">Login</button>
-            <button type="button" class="btn btn-primary" onclick="location.href='sign-up.html'">Sign Up</button>
+            <button type="button" class="btn btn-primary" onclick="location.href='Sign-up.html'">Sign Up</button>
         </form>
+      </div>
     </div>
-    <!-- <div class="col-sm-2 sidenav">
-      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
-      </div>
-    </div> -->
+    
   </div>
 </div>
 
-<footer class="container-fluid text-center">
+<footer>
+  <div class="container-fluid text-center">
     <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:xyz@example.com">xyz@example.com</a></p>
+    <p>Email: <a href="mailto:smart@passport.com">smart@passport.com</a></p>
     <p>Phone: 123-456-7890</p>
     <p>&copy; 2024 Online Passport Registration. All rights reserved. | <a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-of-service">Terms of Service</a></p>
+  </div>
 </footer>
 
 </body>
