@@ -8,38 +8,129 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
-    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    /* Remove the navbar's default margin-bottom and rounded borders */
     .navbar {
       margin-bottom: 0;
       border-radius: 0;
     }
-    
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
-    /* Set gray background color and 100% height */
+
+    /* Use flexbox for the main layout */
+    .content {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding-top: 20px; /* Added space between navbar and content */
+    }
+
+    .main {
+      display: flex;
+      flex: 1;
+    }
+
+    /* Sidebar styles */
     .sidenav {
       padding-top: 20px;
       background-color: #f1f1f1;
-      height: 100%;
+      min-height: 100%;
+      height: auto;
+      flex: 0 0 250px; /* Increase width */
+      font-size: 18px; /* Increase font size */
     }
-    
-    /* Set black background color, white text and some padding */
+
+    .sidenav p a {
+      display: block;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .sidenav p a:hover {
+      background-color: #ddd;
+    }
+
+    /* Main content styles */
+    .col-sm-8 {
+      padding: 20px;
+      flex: 1;
+    }
+
+    /* Footer styles */
     footer {
       background-color: #555;
       color: white;
       padding: 15px;
+      text-align: center;
+      margin-top: 20px; /* Added space above footer */
     }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
-    @media screen and (max-width: 767px) {
+
+    /* Carousel styles */
+    #myCarousel {
+      margin-top: 20px; /* Added space above carousel */
+      background-color: #f0f0f0; /* Light gray background color */
+      padding: 40px 0; /* Adjust padding as needed */
+      margin-bottom: 40px; /* Space below the carousel */
+    }
+
+    .carousel-caption {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      color: #fff;
+    }
+
+    /* Card styles */
+    .card {
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: box-shadow 0.3s ease;
+      margin-bottom: 20px;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card-body {
+      padding: 20px;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .card-text {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    .navbar-brand.logo img {
+      max-width: 40px; /* Adjust max-width as needed */
+      height: auto; /* Maintain aspect ratio */
+      margin-top: -8px; /* Adjust vertical alignment if necessary */
+    }
+    /* On small screens, adjust layout */
+    @media screen and (max-width: 991px) {
       .sidenav {
-        height: auto;
+        flex: 0 0 auto;
+        width: auto;
         padding: 15px;
       }
-      .row.content {height:auto;} 
+      .main {
+        flex-direction: column;
+      }
+    }
+
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        font-size: 16px;
+      }
     }
   </style>
+  <script src="Homepage.js"></script>
+  <script>
+    
+  </script>
 </head>
 <body>
 
@@ -51,42 +142,98 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand logo" href="#"><img src="plane.png" alt="Airplane Logo"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav justify-content">
-          <li class="active"><a href="loginpage1.html">Home</a></li>
-          <li><a href="sign-up1.html">Sign-up</a></li>
-          <li><a href="NewApplication1.html">New passport</a></li>
-          <li><a href="RenewApplication1.html">Renew passport Application</a></li>
-          <li><a href="ApplicationStatus1.html">Application Status</a></li>
-          
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="loginpage1.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-      </div>
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="Homepage.html">Home</a></li>
+        <li><a href="sign-up1.html">Sign-up</a></li>
+        <li><a href="NewApplication1.html">New passport</a></li>
+        <li><a href="RenewApplication1.html">Renew passport Application</a></li>
+        <li><a href="ApplicationStatus1.html">Application Status</a></li>
+        <li><a class="navbar-link" href="#about">About Us</a></li> <!-- Scroll to About Us section -->
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="loginpage1.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><span id="loginStatus"></span></li>
+        <li><a href="#" id="logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+    </div>
   </div>
 </nav>
-  
-<div class="container-fluid text-center">    
-  <div class="row content">
+
+<div class="container-fluid text-center content">    
+  <div class="main">
     <div class="col-sm-2 sidenav">
       <p><a href="loginpage1.html">Login</a></p>
       <p><a href="sign-up1.html">Sign-up</a></p>
       <p><a href="NewApplication1.html">New passport Application</a></p>
       <p><a href="RenewApplication1.html">Renew passport Application</a></p>
-      <p><a href="ApplicationStatus1.html">Application Status</p>
-        <p><a href="feedback1.html">Feedback</a></p>
-            <p><a href="payment1.html">Payment</a></p>
-      <p><a href="homepage1.html">Home</a></p>
+      <p><a href="ApplicationStatus1.html">Application Status</a></p>
+      <p><a href="feedback1.html">Feedback</a></p>
+      <p><a href="payment1.html">Payment</a></p>
+      <p><a href="Homepage.html">Home</a></p>
     </div>
-    <div class="col-sm-8 text-left"> 
-        <!-- Welcome Section -->
-      <section id="welcome" class="welcome-section section-padding">
+    <div class="col-sm-10 text-left"> 
+      <!-- Carousel Section -->
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+          <!-- Slide 1 -->
+          <div class="item active">
+            <div class="card">
+              <div class="card-body">
+                <h2 class="card-title">Fast and Secure Passport Processing</h2>
+                <p class="card-text">Apply for your passport quickly and securely with our streamlined online process. Experience hassle-free document submission along with verification and rapid processing times.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 2 -->
+          <div class="item">
+            <div class="card">
+              <div class="card-body">
+                <h2 class="card-title">Global Access, Local Convenience</h2>
+                <p class="card-text">Access passport services from anywhere in the world with our online platform. Enjoy the convenience of applying for a passport without visiting a physical office.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slide 3 -->
+          <div class="item">
+            <div class="card">
+              <div class="card-body">
+                <h2 class="card-title">24/7 Customer Support</h2>
+                <p class="card-text">Our dedicated support team is available round the clock to assist you with any passport application queries or issues. We are here to ensure a smooth and efficient experience.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Left and right controls -->
+        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+      <!-- Welcome Section -->
+      <section id="welcome" class="section-padding">
         <div class="container">
           <div class="jumbotron">
-            <h2>Welcome to Online Passport Registration</h2>
+            <h2>Welcome to SmartPassport</h2>
             <p class="lead">Apply for your passport online quickly and effortlessly. Join thousands who have simplified their passport application process. Start your journey with us today!</p>
             <p><a href="sign-up1.html" class="btn btn-primary btn-lg" role="button">Register Now</a></p>
           </div>
@@ -94,42 +241,126 @@
       </section>
 
       <!-- About Section -->
-      <section id="about" class="about-section section-padding">
+      <section id="about" class="section-padding">
         <div class="container">
           <div class="row">
             <div class="col-md-12">
               <h2>About Us</h2>
-              <p>Welcome to the Online Passport Registration System – your trusted partner in simplifying the passport application process. Our mission is to provide a seamless, efficient, and user-friendly platform for all your passport needs. </p>
+              <p>Welcome to the Online Passport Registration System – your trusted partner in simplifying the passport application process. Our mission is to provide a seamless, efficient, and user-friendly platform for all your passport needs.</p>
             </div>
           </div>
         </div>
       </section>
-        <!-- Services Section -->
-        <section id="services">
-            <h2>Our Services</h2>
-            <ul>
-                <li>Fast Passport Application Processing</li>
-                <li>Secure Online Data Submission</li>
-                <li>24/7 Customer Support</li>
-            </ul>
-        </section>
+
+      <!-- Services Section -->
+      <section id="services" class="section-padding">
+        <div class="container">
+          <div class="row">
+            <!-- Card 1: Real-Time Application Tracking -->
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Real-Time Application Tracking</h2>
+                  <p class="card-text">Track your application status in real-time, receiving updates at every stage.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2: Easy Document Uploads -->
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Easy Document Uploads</h2>
+                  <p class="card-text">Upload your documents effortlessly using our user-friendly interface.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3: Secure Payment Options -->
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Secure Payment Options</h2>
+                  <p class="card-text">Securely pay your application fees online with multiple payment options.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- Card 4: User-Friendly Interface -->
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">User-Friendly Interface</h2>
+                  <p class="card-text">Enjoy a seamless user experience with our intuitive and easy-to-navigate platform.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5: Dedicated Customer Support -->
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Dedicated Customer Support</h2>
+                  <p class="card-text">Get support around the clock from our dedicated customer service team.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6: Mobile-Friendly Access -->
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Mobile-Friendly Access</h2>
+                  <p class="card-text">Access our platform on-the-go with our mobile-friendly website and app.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- Card 7: Government Integration -->
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Government Integration</h2>
+                  <p class="card-text">Integrated with government systems for accurate verification and issuance.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 8: Comprehensive FAQs and Guides -->
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Comprehensive FAQs and Guides</h2>
+                  <p class="card-text">Find answers to common questions and guides to help you through the application process.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 9: Multi-language Support -->
+            <div class="col-sm-4">
+              <div class="card">
+                <div class="card-body">
+                  <h2 class="card-title">Multi-language Support</h2>
+                  <p class="card-text">Available in multiple languages to serve a diverse user base.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-    <!-- <div class="col-sm-2 sidenav">
-      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
-      </div>
-    </div> -->
   </div>
 </div>
 
 <footer class="container-fluid text-center">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:xyz@example.com">xyz@example.com</a></p>
-    <p>Phone: 123-456-7890</p>
-    <p>&copy; 2024 Online Passport Registration. All rights reserved. | <a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-of-service">Terms of Service</a></p>
+  <h2>Contact Us</h2>
+  <p>Email: <a href="mailto:smart@passport.com">smart@passport.com</a></p>
+  <p>Phone: 123-456-7890</p>
+  <p>&copy; 2024 Online Passport Registration. All rights reserved. | <a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-of-service">Terms of Service</a></p>
 </footer>
 
 </body>
