@@ -18,13 +18,49 @@
     .row.content {height: auto}
 
     /* Set gray background color and 100% height */
+    /* Sidebar styles */
     .sidenav {
-  padding-top: 20px;
-  background-color: #f1f1f1;
-  height: auto; /* Change height to auto */
-  min-height: 100%; /* Adjust this value according to your form's height */
-}
-    
+      padding-top: 20px;
+      background-color: #f1f1f1;
+      
+      height: 1200px; /* Ensure the sidebar covers the full viewport height */
+      flex: 0 0 250px; /* Increase width */
+      font-size: 18px; /* Increase font size */
+    }
+
+    .sidenav p a {
+      display: block;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .sidenav p a:hover {
+      background-color: #ddd;
+    }
+
+    /* Main content styles */
+    .col-sm-8 {
+      padding: 20px;
+      min-height: 100vh; /* Ensure the main content area stretches to full height */
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    /* Footer styles */
+    footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      margin-top: auto; /* Push the footer to the bottom */
+    }
+    .navbar-brand.logo img {
+      max-width: 40px; /* Adjust max-width as needed */
+      height: auto; /* Maintain aspect ratio */
+      margin-top: -8px; /* Adjust vertical alignment if necessary */
+    }
     /* Style the form elements */
     form {
       background-color: #fff;
@@ -73,12 +109,6 @@
       display: inline-block;
     }
 
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
     
     /* Customizing buttons */
     .btn-info {
@@ -90,6 +120,20 @@
     .btn-info:hover {
       background-color: #31b0d5;
       border-color: #269abc;
+    }
+
+    /* Pagination styles */
+    .pagination-container {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .pagination-btn {
+      margin: 0 5px;
+    }
+    .radio-inline {
+      display: inline-flex;
+      align-items: center;
     }
     
     /* On small screens, set height to 'auto' for sidenav and grid */
@@ -112,12 +156,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand logo" href="#"><img src="plane.png" alt="Airplane Logo"></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav justify-content">
-        <li><a href="loginpage1.html">Login</a></li>
-        <li><a href="sign-up.html">Sign-up</a></li>
+        <!-- <li><a href="login.html">Login</a></li> -->
+        <!-- <li><a href="sign-up.html">Sign-up</a></li> -->
         <li><a href="NewApplication1.html">New passport</a></li>
         <li class="active"><a href="RenewApplication1.html">Renew passport Application</a></li>
         <li><a href="ApplicationStatus1.html">Application Status</a></li>
@@ -133,82 +177,93 @@
 <div class="container-fluid text-center">    
   <div class="row content">
     <div class="col-sm-2 sidenav">
-      <p><a href="loginpage1.html">Login</a></p>
-      <p><a href="sign-up1.html">Sign-up</a></p>
+      <!-- <p><a href="loginpage1.html">Login</a></p>
+      <p><a href="sign-up1.html">Sign-up</a></p> -->
       <p><a href="NewApplication1.html">New passport Application</a></p>
       <p><a href="RenewApplication1.html">Renew passport Application</a></p>
       <p><a href="ApplicationStatus1.html">Application Status</a></p>
       <p><a href="feedback1.html">Feedback</a></p>
-            <p><a href="payment1.html">Payment</a></p>
+      <p><a href="payment1.html">Payment</a></p>
       <p><a href="homepage1.html">Home</a></p>
     </div>
     <div class="col-sm-8 text-left"> 
       <h1>Passport Renewal Application</h1>
-      <form action="/submit_passport_renewal" method="POST" enctype="multipart/form-data">
-        <!-- Personal Information -->
-        <fieldset>
-            <legend>Personal Information</legend>
-            <label for="full_name">Full Name:</label>
-            <input type="text" id="full_name" name="full_name" required>
-
-            <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" required>
-
-            <label>Gender:</label><br>
-            <input type="radio" id="male" name="gender" value="male" required>
-            <label for="male">Male</label>
-            <input type="radio" id="female" name="gender" value="female">
-            <label for="female">Female</label>
-        </fieldset>
-
-        <!-- Previous Passport/Application Details -->
-        <fieldset>
-            <legend>Previous Passport/Application Details</legend>
-            <label for="passport_number">Passport/Identity Certificate Number:</label>
-            <input type="text" id="passport_number" name="passport_number" required>
-
-            <label for="date_of_issue">Date of Issue:</label>
-            <input type="date" id="date_of_issue" name="date_of_issue" required>
-
-            <label for="date_of_expiry">Date of Expiry:</label>
-            <input type="date" id="date_of_expiry" name="date_of_expiry" required>
-
-            <label for="place_of_issue">Place of Issue:</label>
-            <input type="text" id="place_of_issue" name="place_of_issue" required>
-
-            <label for="diplomatic_passport">Have you held a diplomatic/official passport?</label>
-            <input type="checkbox" id="diplomatic_passport" name="diplomatic_passport">
-        </fieldset>
-
-        <!-- Additional Fields -->
-        <fieldset>
-            <legend>Additional Fields</legend>
-            <label for="applied_not_issued">Have you ever applied for passport, but not issued?</label>
-            <input type="checkbox" id="applied_not_issued" name="applied_not_issued">
-            
-            <label for="file_number">File Number:</label>
-            <input type="text" id="file_number" name="file_number">
-            
-            <label for="month_year_applying">Month and Year of applying:</label>
-            <input type="month" id="month_year_applying" name="month_year_applying">
-            
-            <label for="passport_office">Name of passport office where applied:</label>
-            <input type="text" id="passport_office" name="passport_office">
-        </fieldset>
-
-        <!-- Self Declaration -->
-        <fieldset>
-            <legend>Self Declaration</legend>
-            <p>I owe allegiance to the sovereignty, unity & integrity of India, and have not voluntarily acquired citizenship or travel document of any other country. I have not lost, surrendered, or been deprived of the citizenship of India. I have not contravened any of the conditions relating to the possession and use of an Indian passport.</p>
-            <p>I affirm that the information and particulars given by me in this form are true and correct. I further state that I am not suppressing any material information in this regard. I further affirm that the enclosures and documentary proof submitted in support of my application for an Indian passport are authentic and solely pertain to me and I am fully responsible for the accuracy of the same. I am liable to be penalized or prosecuted if found otherwise. I am aware that under the Passports Act, 1967, it is a criminal offence to furnish any false information or to suppress any material information with a view to obtaining passport or travel document.</p>
-            <p>I have read and understood the contents of the above and by submitting this form certify that all the information submitted by me in the form is bonafide.</p>
-            <label for="place">Place:</label>
-            <input type="text" id="place" name="place" required>
-            <label for="date">Date (DD-MM-YYYY):</label>
-            <input type="text" id="date" name="date" placeholder="DD-MM-YYYY" required pattern="\d{2}-\d{2}-\d{4}">
-        </fieldset>
-
-        <button type="submit" class="btn btn-info">Submit Renewal Application</button>
+      <form id="passportForm" action="/submit_passport_renewal" method="POST" enctype="multipart/form-data">
+        
+        <!-- Page 1: Personal Information -->
+        <div class="form-page" id="page1">
+          <fieldset>
+              <legend>Personal Information</legend>
+              <label for="full_name">Full Name:</label>
+              <input type="text" id="full_name" name="full_name" required>
+      
+              <label for="dob">Date of Birth:</label>
+              <input type="date" id="dob" name="dob" required>
+      
+              <label>Gender:</label><br>
+              <div class="radio-inline">
+                <input type="radio" id="male" name="gender" value="male" required>
+                <label for="male">Male</label>
+              </div>
+              <div class="radio-inline">
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Female</label>
+              </div>
+          </fieldset>
+      
+          <fieldset>
+              <legend>Previous Passport/Application Details</legend>
+              <label for="passport_number">Passport/Identity Certificate Number:</label>
+              <input type="text" id="passport_number" name="passport_number" required>
+      
+              <label for="date_of_issue">Date of Issue:</label>
+              <input type="date" id="date_of_issue" name="date_of_issue" required>
+      
+              <label for="date_of_expiry">Date of Expiry:</label>
+              <input type="date" id="date_of_expiry" name="date_of_expiry" required>
+      
+              <label for="place_of_issue">Place of Issue:</label>
+              <input type="text" id="place_of_issue" name="place_of_issue" required>
+      
+              <label for="diplomatic_passport">Have you held a diplomatic/official passport?</label>
+              <input type="checkbox" id="diplomatic_passport" name="diplomatic_passport">
+          </fieldset>
+          
+          <button type="button" class="btn btn-info next-page">Next</button>
+        </div>
+        
+        <!-- Page 2: Additional Fields -->
+        <div class="form-page" id="page2" style="display: none;">
+          <fieldset>
+              <legend>Additional Fields</legend>
+              <label for="applied_not_issued">Have you ever applied for passport, but not issued?</label>
+              <input type="checkbox" id="applied_not_issued" name="applied_not_issued">
+              
+              <label for="file_number">File Number:</label>
+              <input type="text" id="file_number" name="file_number">
+              
+              <label for="month_year_applying">Month and Year of applying:</label>
+              <input type="month" id="month_year_applying" name="month_year_applying">
+              
+              <label for="passport_office">Name of passport office where applied:</label>
+              <input type="text" id="passport_office" name="passport_office">
+          </fieldset>
+      
+          <fieldset>
+              <legend>Self Declaration</legend>
+              <p>I owe allegiance to the sovereignty, unity & integrity of India, and have not voluntarily acquired citizenship or travel document of any other country. I have not lost, surrendered, or been deprived of the citizenship of India. I have not contravened any of the conditions relating to the possession and use of an Indian passport.</p>
+              <p>I affirm that the information and particulars given by me in this form are true and correct. I further state that I am not suppressing any material information in this regard. I further affirm that the enclosures and documentary proof submitted in support of my application for an Indian passport are authentic and solely pertain to me and I am fully responsible for the accuracy of the same. I am liable to be penalized or prosecuted if found otherwise. I am aware that under the Passports Act, 1967, it is a criminal offence to furnish any false information or to suppress any material information with a view to obtaining passport or travel document.</p>
+              <p>I have read and understood the contents of the above and by submitting this form certify that all the information submitted by me in the form is bonafide.</p>
+              <label for="place">Place:</label>
+              <input type="text" id="place" name="place" required>
+              <label for="date">Date (DD-MM-YYYY):</label>
+              <input type="text" id="date" name="date" placeholder="DD-MM-YYYY" required pattern="\d{2}-\d{2}-\d{4}">
+          </fieldset>
+          
+          <button type="button" class="btn btn-info prev-page">Previous</button>
+          <button type="submit" class="btn btn-info">Submit Renewal Application</button>
+        </div>
+        
       </form>
     </div>
     
@@ -217,10 +272,12 @@
 
 <footer class="container-fluid text-center">
   <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:xyz@example.com">xyz@example.com</a></p>
+    <p>Email: <a href="mailto:smart@passport.com">smart@passport.com</a></p>
     <p>Phone: 123-456-7890</p>
     <p>&copy; 2024 Online Passport Registration. All rights reserved. | <a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-of-service">Terms of Service</a></p>
 </footer>
+
+
 
 </body>
 </html>
