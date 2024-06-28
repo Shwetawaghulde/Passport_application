@@ -5,8 +5,6 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <style>
     /* Remove the navbar's default margin-bottom and rounded borders */ 
     .navbar {
@@ -14,36 +12,81 @@
       border-radius: 0;
     }
     
-    /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
-    
-    /* Set gray background color and 100% height */
+    /* Set fixed position, full height, and width for sidenav */
     .sidenav {
       padding-top: 20px;
       background-color: #f1f1f1;
-      height: 100%;
+      
+      height: 550px;
+      flex: 0 0 250px; /* Increase width */
+      font-size: 18px; /* Increase font size */
+      margin-top: 50px;
     }
+
+    .sidenav p a {
+      display: block;
+      padding: 10px 15px;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .sidenav p a:hover {
+      background-color: #ddd;
+    }
+    .navbar-brand.logo img {
+      max-width: 40px; /* Adjust max-width as needed */
+      height: auto; /* Maintain aspect ratio */
+      margin-top: -8px; /* Adjust vertical alignment if necessary */
+    }
+
     
-    /* Set black background color, white text and some padding */
+    /* Adjust content margin to account for the fixed sidenav */
     footer {
       background-color: #555;
       color: white;
       padding: 15px;
+      text-align: center;
+      margin-top: 20px; /* Added space above footer */
     }
-    
-    /* On small screens, set height to 'auto' for sidenav and grid */
+
+    /* Center align the signup form */
+    .signup-form {
+      background: #fff; /* Background color for clarity */
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      margin-top: 70px; /* Add margin to separate from sidebar */
+    }
+
+    /* Set black background color, white text, and some padding for footer */
+    /* footer {
+      background-color: #555;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      margin-top: 20px; 
+      clear: both; 
+    } */
+
+    /* On small screens, set height to 'auto' for sidenav and adjust grid */
     @media screen and (max-width: 767px) {
-      .sidenav {
-        height: auto;
+        .sidenav {
+        flex: 0 0 auto;
+        width: auto;
         padding: 15px;
       }
-      .row.content {height:auto;} 
+      .main {
+        flex-direction: column;
+      }
+      .content {
+        margin-left: 0;
+      }
     }
   </style>
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -54,14 +97,13 @@
       <a class="navbar-brand" href="#">Logo</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav justify-content">
-            <li ><a href="loginpage1.html">Login</a></li>
-            <li class="active"><a href="sign-up1.html">Sign-up</a></li>
-            <li><a href="NewApplication1.html">New passport</a></li>
-            <li><a href="RenewApplication1.html">Renew passport Application</a></li>
-            <li><a href="ApplicationStatus1.html">Application Status</a></li>
-            <li><a href="homepage1.html">Home</a></li>
-          </ul>
+      <ul class="nav navbar-nav">
+        <li><a href="Login.html">Login</a></li>
+        <li class="active"><a href="sign-up1.html">Sign-up</a></li>
+        <li><a href="NewApplication1.html">New passport</a></li>
+        <li><a href="RenewApplication1.html">Renew passport Application</a></li>
+        <li><a href="ApplicationStatus1.html">Application Status</a></li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="loginpage1.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
       </ul>
@@ -69,83 +111,64 @@
   </div>
 </nav>
   
-<div class="container-fluid text-center">    
-  <div class="row content">
+<div class="container-fluid main">    
+  <div class="row">
     <div class="col-sm-2 sidenav">
-        <p><a href="loginpage1.html">Login</a></p>
-        <p><a href="sign-up1.html">Sign-up</a></p>
-        <p><a href="NewApplication1.html">New passport Application</a></p>
-        <p><a href="RenewApplication1.html">Renew passport Application</a></p>
-        <p><a href="ApplicationStatus1.html">Application Status</p>
-        <p><a href="homepage1.html">Home</a></p>
-      </div>
-    <div class="col-sm-8 text-left"> 
-        <div>
-            <h1>Online Passport Registration</h1>
-        </div>
-        <div>
-            <h2 class="bg-info">Passport Signup</h2>
-            <form action="#" method="post">
-                <div class="form-group">
-                    <label for="full-name">Full Name:</label><br>
-                    <input type="text" class="form-control" id="full-name" name="full-name" required><br>
-                </div>
-                <div class="form-group">
-                    <label for="dob">Date of Birth:</label><br>
-                    <input type="date" class="form-control" id="dob" name="dob" required><br>
-                </div>
-                <div class="form-group">
-                    <label for="gender">Gender:</label><br>
-                    <select class="form-control" id="gender" name="gender" required>
-                        <option value="">Select Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                        <option value="other">Other</option>
-                    </select><br>
-                </div>
-                <!-- Add spacing between each form group -->
-                <div class="form-group">
-                    <label for="email">Email:</label><br>
-                    <input type="email" class="form-control" id="email" name="email" required><br>
-                </div>
-                <div class="form-group">
-                    <label for="phone">Phone Number:</label><br>
-                    <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" required><br>
-                </div>
-                <div class="form-group">
-                    <label for="address">Address:</label><br>
-                    <textarea class="form-control" id="address" name="address" rows="3" required></textarea><br>
-                </div>
-                <div class="form-group">
-                    <label for="password">Password:</label><br>
-                    <input type="password" class="form-control" id="password" name="password" minlength="6" required><br>
-                </div>
-                <div class="form-group">
-                    <label for="confirm-password">Confirm Password:</label><br>
-                    <input type="password" class="form-control" id="confirm-password" name="confirm-password" minlength="6" required><br>
-                </div>
-                <button type="submit" class="btn btn-info">Signup</button>
-            </form>
-        </div>
+      <p><a href="loginpage1.html">Login</a></p>
+      <p><a href="sign-up1.html">Sign-up</a></p>
+      <p><a href="NewApplication.html">New passport Application</a></p>
+      <p><a href="RenewApplication.html">Renew passport Application</a></p>
+      <p><a href="ApplicationStatus1.html">Application Status</a></p>
+      <p><a href="homepage1.html">Home</a></p>
     </div>
-    
-    <div class="col-sm-2 sidenav">
-      <div class="well">
-        <p>ADS</p>
-      </div>
-      <div class="well">
-        <p>ADS</p>
+    <div class="col-sm-8 col-sm-offset-2 content"> 
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="signup-form">
+            <h2 class="bg-info text-center">Passport Signup</h2>
+            <form id="signupForm">
+              <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" class="form-control" required title="Only alphabets are allowed">
+              </div>
+              <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" name="password" minlength="6" required>
+              </div>
+              <div class="form-group">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" class="form-control" id="confirm-password" name="confirm-password" minlength="6" required>
+              </div>
+              <div class="form-group text-center">
+                <button type="submit" class="btn btn-info">Signup</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <!-- Other content or form can go here beside the signup form -->
+        </div>
       </div>
     </div>
   </div>
 </div>
 
 <footer class="container-fluid text-center">
-    <h2>Contact Us</h2>
-    <p>Email: <a href="mailto:xyz@example.com">xyz@example.com</a></p>
-    <p>Phone: 123-456-7890</p>
-    <p>&copy; 2024 Online Passport Registration. All rights reserved. | <a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-of-service">Terms of Service</a></p>
+  <h2>Contact Us</h2>
+  <p>Email: <a href="mailto:smart@passport.com">smart@passport.com</a></p>
+  <p>Phone: 123-456-7890</p>
+  <p>&copy; 2024 Online Passport Registration. All rights reserved. | <a href="#privacy-policy">Privacy Policy</a> | <a href="#terms-of-service">Terms of Service</a></p>
 </footer>
+
+<script src="Sign-up.js"></script>
 
 </body>
 </html>
